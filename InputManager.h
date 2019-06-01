@@ -1,8 +1,7 @@
-#pragma once
+#ifndef _Input_Manager_
+#define _Input_Manager_
 #include "gtc_gui.h"
-#include <QWebFrame>
-#include <QWebElementCollection>
-
+#include "Error.h"
 /*!
 	\brief Родительский класс, отвечающий за получение данных
 
@@ -15,18 +14,19 @@ class InputManager
 {
 public:
 	InputManager(void);
-	~InputManager(void);
+	InputManager(GTC_GUI* window);
+	InputManager(const InputManager&);
+	virtual ~InputManager(void);
 
 	Error InputError;
-	GTC_GUI w;
+	GTC_GUI * w;
 
 /*!Получает html-текст и представляет его в виде фрейма
 \param[in] Path Путь к файлу/URL, где содержится html-текст
 \return Полученный фрейм веб-страницы
 */
-	//Можно ли в абстрактном классе описать метод, одинаковый для двух дочерних классов? 
-	//Хочу метод setData, который поместит в ui.webFrame данные полученные с урла. 
-	//Сейчас этот метод находится в gtc_gui.срр. 
-	//Если нет, то добавить в getData в начало HTMLData = ui.webView->page()->mainFrame(); ///> html-текст в виде фрейма
-	virtual void getData(QString Path) = 0; ///> pure virtual function
+	//Можно ли в абстрактном классе описать метод, одинаковый для двух дочерних классов? yes
+	virtual void getData(QString InputFilePath) = 0; ///< pure virtual function
 };
+
+#endif

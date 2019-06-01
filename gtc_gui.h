@@ -5,11 +5,7 @@
 #include <process.h>
 #include <QWebElement>
 #include "ui_gtc_gui.h"
-#include "FileInputManager.h"
-#include "WebInputManager.h"
-#include "TableOfContents.h"
-#include "OutputManager.h"
-#include "Error.h"
+
 
 class GTC_GUI : public QMainWindow
 {
@@ -25,6 +21,9 @@ public:
 	*/
 	void setUrl(const QUrl &url);
 
+	/*Получает фрейм, хранящийся в буфере в данный момент
+	\return Полученный фрейм веб-страницы
+	*/
 	QWebFrame * getFrame();
 
 private:

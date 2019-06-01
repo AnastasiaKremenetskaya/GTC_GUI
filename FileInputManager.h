@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _FileInputManager_
+#define _FileInputManager_
 #include "inputmanager.h"
 #include <QFile>
 
@@ -11,6 +12,8 @@ class FileInputManager : public InputManager
 {
 public:
 	FileInputManager(void);
+	FileInputManager(GTC_GUI* window);
+	FileInputManager(const FileInputManager&);
 	~FileInputManager(void);
 
 /*!Получает html-текст по указанному пути и представляет его в виде фрейма
@@ -22,3 +25,4 @@ private:
 	QFile InputFile;
 };
 
+#endif

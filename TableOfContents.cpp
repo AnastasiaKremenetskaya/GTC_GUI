@@ -1,7 +1,6 @@
 #include "TableOfContents.h"
 
-//Конструктор
-TableOfContents::TableOfContents(QWebFrame * HTMLData, QString Path)
+TableOfContents::TableOfContents(const QWebFrame * HTMLData, QString Path)
 {
 	this->HTMLData = 0;
 	this->Path = Path;
@@ -9,17 +8,17 @@ TableOfContents::TableOfContents(QWebFrame * HTMLData, QString Path)
 	this->HeaderCollection = Headers.findAll("h"); //не h, а qregexp;
 }
 
-void setTab()
+void TableOfContents::setTab()
 {
 
 }
 
-void modifyHeaderCollectionAttributes()
+void TableOfContents::modifyHeaderCollectionAttributes()
 {
 
 }
 
-QString generateHtmlDoc()
+QString TableOfContents::generateHTMLdoc()
 {
-	return 0;//delete
+	return QString();//delete
 }

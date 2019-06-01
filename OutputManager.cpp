@@ -10,13 +10,15 @@ OutputManager::~OutputManager(void)
 {
 }
 
-void OutputManager::setData(QByteArray HtmlData)
+void OutputManager::setData(QString OutputFilePath, QString ResultHtml)
 {
-	QFile ResultFile("TOC.html");
+	QFile ResultFile(OutputFilePath);
+	
+	//Если файл для записи успешно открыт
 	if(ResultFile.open(QIODevice::WriteOnly)) 
     { 
-		//Если файл для записи успешно открыт
-		ResultFile.write(HtmlData);
+		QTextStream in(&OutputFilePath);
+        in << ResultHtml;
 	}
 	else 
 		OutputError.sendErrorMessage(WrongOutputFilename);

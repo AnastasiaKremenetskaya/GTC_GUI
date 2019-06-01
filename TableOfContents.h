@@ -1,4 +1,6 @@
-#pragma once
+#ifndef _TableOfContents_
+#define _TableOfContents_
+
 #include <QWebFrame>
 #include <QWebElementCollection>
 #include "gtc_gui.h"
@@ -15,10 +17,8 @@
 - Заносит сгенерированное оглавление в байтовый массив
 */
 
-class TableOfContents: public QObject
+class TableOfContents
 {
-	Q_OBJECT
-
 public:
 
 	TableOfContents(void);
@@ -46,7 +46,6 @@ private:
 
 	/*!
 	Определяет отступы по уровню вложенности элементов
-	\param[in/out] HeaderCollection Коллекция веб-элементов 'h' - через this->
 	*/
 	void setTab();
 
@@ -56,3 +55,5 @@ private:
 	void modifyHeaderCollectionAttributes();
 
 };
+
+#endif

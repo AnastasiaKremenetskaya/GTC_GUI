@@ -1,7 +1,9 @@
-#pragma once
+#ifndef _OutputManager_
+#define _OutputManager_
+
 #include "gtc_gui.h"
 #include <QFile>
-
+#include "Error.h"
 class OutputManager
 {
 public:
@@ -10,12 +12,14 @@ public:
 
 	Error OutputError;
 
-	QFile ResultFile; ///> Результирующий файл
+	QFile ResultFile; ///< Результирующий файл
 
-/*!
-Заносит сгенерированное содержание в файл
-\param[in] HtmlData Модифицированный html-код для записи
-*/
-	void setData(QByteArray HTMLData);//вообще там кустринг
+	/*!
+	Заносит сгенерированное содержание в файл
+	\param[in] OutputFilePath Путь к файлу для записи
+	\param[in] ResultHtml Сгенерированный текст
+	*/
+	void setData(QString OutputFilePath, QString ResultHtml);
 };
 
+#endif

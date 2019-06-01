@@ -1,11 +1,23 @@
 #include "FileInputManager.h"
 #include <QDomDocument>
 
-FileInputManager::FileInputManager(void){}
+FileInputManager::FileInputManager(void)
+{
+}
 
+FileInputManager::FileInputManager(GTC_GUI* window)
+	: InputManager(window)
+{
+}
 
-FileInputManager::~FileInputManager(void){}
+FileInputManager::FileInputManager(const FileInputManager& i)
+	: InputManager(i)
+{
+}
 
+FileInputManager::~FileInputManager(void)
+{
+}
 
 void FileInputManager::getData(QString FilePath)
 {
@@ -16,17 +28,16 @@ void FileInputManager::getData(QString FilePath)
 	InputFile.open(QIODevice::ReadOnly);
 	if (InputFile.isOpen())
 	{	
-		//Записать данные в байтовый массив
-		QByteArray HtmlByteArray = InputFile.readAll();
+		QTextStream out(&InputFile);
+
+		//Записать данные в строке
+		QString InputHtml = InputFile.readAll();
 
 		//Закрыть файл
 		InputFile.close();
 
-		//Проверить файл на наличие синтаксических ошибок
-		if(
-
-		//Конвертировать путь в URL и установить в буфер данные, взятые по URL
-		w.setUrl(QUrl(QUrl::fromLocalFile(FilePath)));
+		//Сохранить данные в буфер
+		w->setUrl(QUrl::fromLocalFile(FilePath));
 	}
 	else
 		//Сообщить об ошибке

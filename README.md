@@ -2,6 +2,12 @@
 Handles html-code and locates the result to file
 Данная программа предназначена для представления HTML-страницы в виде содержания, где каждый заголовок является якорной ссылкой. 
 
+<p class="codepen" data-height="400" data-theme-id="0" data-default-tab="html,result" data-user="anastasiakremenetskaya" data-slug-hash="xeKyxN" style="height: 400px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="xeKyxN">
+  <span>See the Pen <a href="https://codepen.io/anastasiakremenetskaya/pen/xeKyxN/">
+  xeKyxN</a> by AnastasiaKremenetskaya (<a href="https://codepen.io/anastasiakremenetskaya">@anastasiakremenetskaya</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 Пример входного файла:
 
 <h1 id="section1">Beetles</h1>
